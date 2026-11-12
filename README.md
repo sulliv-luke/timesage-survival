@@ -112,7 +112,7 @@ No data are bundled or downloaded. See [DATA.md](DATA.md).
 
 ## Citation
 
-The method is described in:
+The original research can be accessed [here](https://drive.google.com/file/d/1frWXf60dzRwxJ_MNlHRtz0w7xC42irFq/view?usp=sharing). If mentioning TimeSAGE in your own work, please reference as:
 
 > Sullivan, L. (2026). *TimeSAGE: A Loss-Calibrated Global Feature
 > Attribution Method for Survival Models.* MSc dissertation, Trinity College
