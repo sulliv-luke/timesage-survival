@@ -1,0 +1,56 @@
+# Parity tolerances between the original research implementation and timesage.
+# Never loosen a value without explicit approval; give each a one-line reason.
+
+[L0_exact]
+# Deterministic code (KM G_hat, IPCW weights/loss, integration, metrics):
+# same float64 operations, so only rounding-order differences are allowed.
+rtol = 1e-10
+atol = 1e-12
+
+[L1_seeded]
+# Seeded estimator with unchanged RNG draw order: differences come only from
+# floating-point accumulation order across the (p, K) Welford updates.
+rtol = 1e-8
+atol = 1e-10
+
+[L2_distributional]
+# Estimator whose RNG draw order legitimately changed; compared across seeds.
+n_seeds = 10
+# Fraction of (j, t) entries whose mean difference must lie within
+# `se_multiplier` combined standard errors.
+entry_pass_fraction = 0.95
+se_multiplier = 2.0
+# Spearman between side means of censoring-integrated importance.
+min_spearman_integrated = 0.98
+# Number of leading features that must match exactly.
+top_k_identical = 3
+
+[F32_scaler]
+# Adapter scaler= path vs the original implementation's pre-scaled inputs
+# (survival probabilities). It scaled in float64 then cast to float32; TimeSAGE casts to float32 and
+# the adapter then scales, so inputs differ by float32 rounding (~6e-8 relative).
+# For a Cox model |dS| <= |d eta| / e; measured max 1.1e-7 on the CoxPH test case.
+rtol = 0.0
+atol = 1e-6
+
+[SYNTH_rows]
+# make_synthetic vs the original study's first training rows (float64 golden).
+# Same arithmetic and draw order, so only summation-order rounding is allowed;
+# a digest mismatch with these rows matching points to platform linear algebra.
+rtol = 1e-12
+atol = 1e-12
+
+[SYNTH_summary]
+# make_synthetic vs per-split event counts, sums and sums of squares of the
+# original study's 50 datasets. CPU-dependent BLAS kernels in
+# multivariate_normal change last bits across machines (seen on CI), so the
+# bit-exact digest is opt-in; float sums of <= 500 rows move by ~1e-13.
+rtol = 1e-10
+atol = 1e-10
+
+[SCALER_np_vs_sklearn]
+# Oracle standardiser (numpy mean / population std) vs sklearn StandardScaler,
+# checked in the tests only: measured bit-identical on all 50 training sets
+# with scikit-learn 1.7.2 and 1.9.1, so no tolerance is allowed.
+rtol = 0.0
+atol = 0.0

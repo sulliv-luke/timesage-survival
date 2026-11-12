@@ -1,0 +1,25 @@
+{
+  "reference": "original research implementation",
+  "reference_manifest_sha256": "df6772f0a83abc51e71b05142b04c553610b2693f2b4576026cbb4756bc33afd",
+  "reference_file": "time_sage_survival/time_sage_survival.py",
+  "reference_file_sha256": "a30345bbe5f1e27b723d7ddc529041e6dd13c17254d2b693556303dc33a635c6",
+  "reference_git_sha": "54642be8feccd9ae37d5620b64bfc0c6e53f0380",
+  "functions": [
+    "fit_censoring_km",
+    "CensoringKM.G",
+    "ipcw_brier_loss_multi",
+    "ipcw_brier_loss_vector"
+  ],
+  "cases": [
+    "continuous",
+    "ties",
+    "no_censoring",
+    "tail_zero",
+    "all_censored"
+  ],
+  "seed": 20261023,
+  "inputs": "synthetic only (see _cases in this script)",
+  "python": "3.11.0",
+  "numpy": "2.3.4",
+  "generated_by": "running the original research implementation's censoring Kaplan-Meier and IPCW Brier functions; code identified by reference_manifest_sha256"
+}

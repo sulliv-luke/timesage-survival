@@ -1,0 +1,31 @@
+{
+  "reference": "original research implementation",
+  "reference_manifest_sha256": "df6772f0a83abc51e71b05142b04c553610b2693f2b4576026cbb4756bc33afd",
+  "cells": [
+    "E1/101",
+    "E2/101",
+    "E3/101",
+    "E4/101",
+    "H1/101"
+  ],
+  "settings": {
+    "eval_size": 1024,
+    "background_size": 256,
+    "n_permutations": 4096,
+    "batch_size": 128,
+    "detect_convergence": false,
+    "thresh": 0.02,
+    "random_state_offset": 50000
+  },
+  "seconds_per_cell": {
+    "E1": 7.2,
+    "E2": 7.2,
+    "E3": 7.2,
+    "E4": 7.3,
+    "H1": 7.2
+  },
+  "python": "3.11.0",
+  "numpy": "2.3.4",
+  "generated_by": "running the original research implementation's synthetic-study oracle, one cell per scenario, seed 101; code identified by reference_manifest_sha256",
+  "survival_function": "truth.oracle_survival_from_dgp of the original research implementation; reproduced by oracle_importance(..., legacy_parity=True)"
+}

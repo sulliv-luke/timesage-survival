@@ -1,0 +1,26 @@
+{
+  "reference": "original research implementation",
+  "reference_manifest_sha256": "df6772f0a83abc51e71b05142b04c553610b2693f2b4576026cbb4756bc33afd",
+  "reference_files_sha256": {
+    "synthetic_study_reduced/src/metrics.py": "2dea05d88a5d411f6e874d8575d45b215606a7899f53499100ceaef389fd5d69",
+    "synthetic_study_reduced/src/truth.py": "50c80be24e434b0056dabf2aeb750da8140dc6a0fc9b9652de13074e1d583fed"
+  },
+  "reference_git_sha": "54642be8feccd9ae37d5620b64bfc0c6e53f0380",
+  "exercised": [
+    "truth.stable_support_mask (G_hat on train, R_hat on test, 1{T > t})",
+    "metrics._safe_corr, normalized_weighted_curve_error, high_importance_overlap, peak_time_error on full grid and stable window",
+    "truth.weighted_point_weights uniform and event_density",
+    "values in undefined cases"
+  ],
+  "undefined": {
+    "iou_both_regions_empty": 0.0,
+    "iou_empty_window": 0.0,
+    "nwiae_zero_reference": 28222811639.468876,
+    "nwiae_empty_window": 0.0
+  },
+  "seed": 20261027,
+  "inputs": "synthetic only",
+  "python": "3.11.0",
+  "numpy": "2.3.4",
+  "generated_by": "running the original research implementation's synthetic-study metric functions on synthetic curves; code identified by reference_manifest_sha256"
+}
