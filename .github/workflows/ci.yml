@@ -36,7 +36,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install --upgrade pip
-      - run: pip install -e ".[dev,lifelines]"
+      - run: pip install -e ".[dev,lifelines,plot]"
       - run: mypy src
 
   test:
@@ -57,7 +57,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
       - run: python -m pip install --upgrade pip
-      - run: pip install -e ".[dev,lifelines]"
+      - run: pip install -e ".[dev,lifelines,plot]"
       # Fast tests only; slow parity/recovery tests are deselected by default.
       - run: pytest -q --cov --cov-report=term-missing
 
@@ -74,7 +74,7 @@ jobs:
           cache: pip
       - run: python -m pip install --upgrade pip
       - run: pip install "torch>=2.0" --index-url https://download.pytorch.org/whl/cpu
-      - run: pip install -e ".[dev,lifelines,pycox]"
+      - run: pip install -e ".[dev,lifelines,pycox,plot]"
       - run: python -c "import torch; assert torch.version.cuda is None, torch.__version__"
       - run: pytest -q
 

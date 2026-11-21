@@ -19,6 +19,7 @@ repository (`pip install .`); after it:
 pip install timesage-survival                 # core: numpy, pandas, scipy
 pip install "timesage-survival[lifelines]"    # CoxPH and time-varying Cox adapters
 pip install "timesage-survival[pycox]"        # DeepSurv and DeepHit adapters (PyTorch)
+pip install "timesage-survival[plot]"         # plotting helpers (matplotlib)
 pip install "timesage-survival[examples]"     # what examples/ needs
 ```
 
@@ -54,6 +55,10 @@ result.phi  # (6 features, 18 times)
 result.integrated()  # censoring-weighted integral, by feature
 result.integrated(window=result.stable_window())
 ```
+
+With the `[plot]` extra, `timesage.plotting.plot_importance_curves(result)`
+draws the curves with the stable window shaded, and
+`timesage.plotting.plot_integrated(result)` a bar chart of the integrals.
 
 Any model works if it provides `predict_survival(X, times)` returning
 survival probabilities of shape `(n_samples, n_times)`; a plain function with

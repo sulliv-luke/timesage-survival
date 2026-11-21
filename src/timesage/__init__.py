@@ -15,6 +15,6 @@ from timesage.integrate import integrate
 from timesage.protocols import SurvivalModel
 from timesage.result import TimeSAGEResult
 
-__version__ = "0.0.0.dev0"
+__version__ = "0.1.0rc1"
 
 __all__ = ["SurvivalModel", "TimeSAGE", "TimeSAGEResult", "__version__", "integrate"]

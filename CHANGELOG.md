@@ -37,10 +37,15 @@ Not yet released on PyPI.
 - Input validation: clear errors for shape mismatches, invalid event
   indicators, grids beyond the observed follow-up, `G_hat = 0` on the grid
   and invalid model output; a warning when `G_hat < 0.05` on the grid.
+- `timesage.plotting` (needs the `[plot]` extra): `plot_importance_curves`
+  draws the importance curves with Monte Carlo bands and the stable window
+  shaded; `plot_integrated` draws a bar chart of integrated importance.
 - Example: CoxPH on METABRIC (`examples/coxph_metabric.py`), and
   `scripts/metabric_from_cbioportal.py` to build its input file from the
   cBioPortal release.
+- `scripts/benchmark_complexity.py`: wall-clock benchmark of TimeSAGE against
+  leave-one-feature-out refitting as the number of features grows.
 - Documentation: `README.md`, `CONVENTIONS.md` and `DATA.md`.
-- Optional extras `[lifelines]`, `[pycox]` and `[examples]`. Type
+- Optional extras `[lifelines]`, `[pycox]`, `[plot]` and `[examples]`. Type
   information is included (`py.typed`).
 - Tested on Python 3.10–3.12 (Linux) and 3.11 (Windows).
