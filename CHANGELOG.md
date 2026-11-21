@@ -6,7 +6,9 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-Not yet released on PyPI.
+## [0.1.0] - 2026-11-21
+
+First public release.
 
 ### Added
 - `TimeSAGE` estimator: time-indexed importance curves from the IPCW Brier
@@ -49,3 +51,6 @@ Not yet released on PyPI.
 - Optional extras `[lifelines]`, `[pycox]`, `[plot]` and `[examples]`. Type
   information is included (`py.typed`).
 - Tested on Python 3.10–3.12 (Linux) and 3.11 (Windows).
+
+[Unreleased]: https://github.com/sulliv-luke/timesage-survival/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/sulliv-luke/timesage-survival/releases/tag/v0.1.0
